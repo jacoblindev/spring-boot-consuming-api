@@ -12,15 +12,27 @@
         $(document).ready(function () {
             $.getJSON("http://localhost:8081/products", function (result) {
                 $.each(result, function (key, value) {
-                    $("#productsJson").append(value.id + ": " + value.name + "\n");
-                })
-            })
+                    $("#data").append('<tr><td headers="id">' + value.id + '</td><td headers="name">' + value.name + '</td><td headers="delete"><button>Delete</button></td></tr>');
+                });
+            });
+
         });
     </script>
 </head>
 
 <body>
-    <div id="productsJson"></div>
+    <table>
+        <caption>Products</caption>
+        <thead>
+            <tr>
+                <th id="id">ID</th>
+                <th id="name">Name</th>
+                <th id="delete">Delete</th>
+            </tr>
+        </thead>
+        <tbody id="data">
+        </tbody>
+    </table>
 </body>
 
 </html>
